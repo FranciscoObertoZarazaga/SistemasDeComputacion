@@ -1,8 +1,10 @@
-all: compilar link 
+all: compilar link borrar
 
 compilar: 
 	gcc *.c -g -c
 
 link:
-	gcc *.o -o main.exe
+	gcc *.o -pg -o main.exe
 
+borrar:
+	rm *.o
