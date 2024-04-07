@@ -13,7 +13,7 @@ class Country:
         self.append(data)
 
     def convertWithC(self, n: float) -> int:
-        command = ['./convert', str(n)]
+        command = ['./convert.exe', str(n)]
         result = subprocess.run(command, capture_output=True, text=True)
         return result.returncode
 
