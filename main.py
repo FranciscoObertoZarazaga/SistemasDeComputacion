@@ -15,4 +15,5 @@ for country in response[1]:
         countrys[country.name] = country
 
 argentina = countrys['Argentina']
+print(argentina.dataframe)
 argentina.plot()
