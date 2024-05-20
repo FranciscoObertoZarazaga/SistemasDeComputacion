@@ -1,0 +1,1 @@
+savedcmd_/home/fran/Desktop/SdC/kenel-modules/part1/module/mimodulo.mod := printf '%s\n'   mimodulo.o | awk '!x[$$0]++ { print("/home/fran/Desktop/SdC/kenel-modules/part1/module/"$$0) }' > /home/fran/Desktop/SdC/kenel-modules/part1/module/mimodulo.mod

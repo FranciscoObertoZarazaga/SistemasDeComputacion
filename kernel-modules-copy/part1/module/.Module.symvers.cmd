@@ -1,0 +1,1 @@
+savedcmd_/home/fran/Desktop/SdC/kenel-modules/part1/module/Module.symvers :=  scripts/mod/modpost -M -m       -o /home/fran/Desktop/SdC/kenel-modules/part1/module/Module.symvers -T /home/fran/Desktop/SdC/kenel-modules/part1/module/modules.order -i Module.symvers -e 
