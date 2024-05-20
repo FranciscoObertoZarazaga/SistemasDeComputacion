@@ -1,0 +1,70 @@
+cpu:
+                       Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2700 MHz
+                       Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2700 MHz
+                       Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2700 MHz
+                       Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 2700 MHz
+keyboard:
+  /dev/input/event9    SINO WEALTH Gaming KB
+  /dev/input/event8    [Maxxter] Optical gaming mouse
+  /dev/input/event4    AT Translated Set 2 keyboard
+mouse:
+  /dev/input/mice      [Maxxter] Optical gaming mouse
+  /dev/input/mice      DELL0767:00 06CB:7E92 Mouse
+  /dev/input/mice      DELL0767:00 06CB:7E92 Touchpad
+monitor:
+                       H97H1 156WHU LCD Monitor
+graphics card:
+                       Dell Radeon R7 M445
+                       Intel HD Graphics 620
+sound:
+                       Intel Sunrise Point-LP HD Audio
+storage:
+                       Intel Sunrise Point-LP SATA Controller [AHCI mode]
+network:
+  enp3s0               Realtek RTL810xE PCI Express Fast Ethernet controller
+  wlp2s0               Intel Wireless 3165
+network interface:
+  enp3s0               Ethernet network interface
+  lo                   Loopback network interface
+  wlp2s0               Ethernet network interface
+disk:
+  /dev/sdb             ST1000LM035-1RK1
+  /dev/sda             KINGSTON SA400S3
+partition:
+  /dev/sdb1            Partition
+  /dev/sdb2            Partition
+  /dev/sdb3            Partition
+  /dev/sdb4            Partition
+  /dev/sda1            Partition
+usb controller:
+                       Intel Sunrise Point-LP USB 3.0 xHCI Controller
+bios:
+                       BIOS
+bridge:
+                       Intel Sunrise Point-LP PCI Express Root Port #1
+                       Intel Sunrise Point-LP LPC Controller
+                       Intel Sunrise Point-LP PCI Express Root Port #6
+                       Intel Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers
+                       Intel Sunrise Point-LP PCI Express Root Port #5
+hub:
+                       Linux Foundation 2.0 root hub
+                       Linux Foundation 3.0 root hub
+memory:
+                       Main Memory
+bluetooth:
+                       Intel Bluetooth Device
+unknown:
+                       FPU
+                       DMA controller
+                       PIC
+                       Keyboard controller
+                       Intel Sunrise Point-LP PMC
+                       Intel Sunrise Point-LP Serial IO I2C Controller #1
+                       Intel Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Thermal Subsystem
+                       Intel Sunrise Point-LP CSME HECI #1
+                       Intel Sunrise Point-LP Serial IO I2C Controller #0
+                       Intel Sunrise Point-LP Thermal subsystem
+                       Intel Sunrise Point-LP SMBus
+                       Realtek RTS5129 Card Reader Controller
+                       Microdia Integrated_Webcam_HD
+  /dev/input/event11   SINO WEALTH Gaming KB
