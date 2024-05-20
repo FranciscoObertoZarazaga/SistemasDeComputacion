@@ -1,4 +1,4 @@
-# Reglas
+:# Reglas
 all:
 	g++ helloWorld.cpp -o myhelloWorld
 
