@@ -41,9 +41,6 @@ __used __section("__versions") = {
 	{ 0x7188b409, "device_create" },
 	{ 0xe6f9d1e8, "cdev_init" },
 	{ 0xe8f65a0d, "cdev_add" },
-	{ 0xfbade11, "i2c_get_adapter" },
-	{ 0x8a01c137, "i2c_new_client_device" },
-	{ 0x218db5b1, "i2c_put_adapter" },
 	{ 0x93e67167, "device_destroy" },
 	{ 0xcbedc829, "class_destroy" },
 	{ 0x6091b333, "unregister_chrdev_region" },
@@ -57,13 +54,16 @@ __used __section("__versions") = {
 	{ 0x98cf60b3, "strlen" },
 	{ 0xdcb764ad, "memset" },
 	{ 0xd37b4ff3, "kernel_sendmsg" },
-	{ 0x656e4a6e, "snprintf" },
-	{ 0xf9a482f9, "msleep" },
 	{ 0xb3f7646e, "kthread_should_stop" },
-	{ 0xde5abbd6, "i2c_transfer_buffer_flags" },
+	{ 0xa6566a8a, "filp_open" },
+	{ 0x22023fe9, "kernel_read" },
+	{ 0x8e54dcab, "filp_close" },
+	{ 0xf9a482f9, "msleep" },
+	{ 0x1e6d26a8, "strstr" },
+	{ 0xb742fd7, "simple_strtol" },
+	{ 0x656e4a6e, "snprintf" },
 	{ 0x20137b52, "module_put" },
 	{ 0x59c08c5b, "kthread_stop" },
-	{ 0xb07237c5, "i2c_unregister_device" },
 	{ 0xffc6fd5, "cdev_del" },
 	{ 0xe478ef45, "module_layout" },
 };
@@ -71,4 +71,4 @@ __used __section("__versions") = {
 MODULE_INFO(depends, "");
 
 
-MODULE_INFO(srcversion, "82C7984990F5C3BC35C1DBF");
+MODULE_INFO(srcversion, "E923EA8687E76615C3168EC");

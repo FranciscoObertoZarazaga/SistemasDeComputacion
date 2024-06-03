@@ -978,104 +978,18 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/delay.h \
   arch/arm64/include/generated/asm/delay.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/delay.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/i2c.h \
-    $(wildcard include/config/I2C) \
-    $(wildcard include/config/I2C_SLAVE) \
-    $(wildcard include/config/I2C_BOARDINFO) \
-    $(wildcard include/config/I2C_MUX) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/acpi.h \
-    $(wildcard include/config/ACPI_DEBUGGER) \
-    $(wildcard include/config/ACPI_TABLE_LIB) \
-    $(wildcard include/config/X86) \
-    $(wildcard include/config/LOONGARCH) \
-    $(wildcard include/config/ACPI_PROCESSOR_CSTATE) \
-    $(wildcard include/config/ACPI_HOTPLUG_CPU) \
-    $(wildcard include/config/ACPI_HOTPLUG_IOAPIC) \
-    $(wildcard include/config/X86_IO_APIC) \
-    $(wildcard include/config/PCI) \
-    $(wildcard include/config/ACPI_WMI) \
-    $(wildcard include/config/ACPI_NUMA) \
-    $(wildcard include/config/HIBERNATION) \
-    $(wildcard include/config/ACPI_HOTPLUG_MEMORY) \
-    $(wildcard include/config/ACPI_CONTAINER) \
-    $(wildcard include/config/ACPI_GTDT) \
-    $(wildcard include/config/SUSPEND) \
-    $(wildcard include/config/ACPI_TABLE_UPGRADE) \
-    $(wildcard include/config/ACPI_WATCHDOG) \
-    $(wildcard include/config/ACPI_SPCR_TABLE) \
-    $(wildcard include/config/ACPI_GENERIC_GSI) \
-    $(wildcard include/config/ACPI_LPIT) \
-    $(wildcard include/config/ACPI_PROCESSOR_IDLE) \
-    $(wildcard include/config/ACPI_PPTT) \
-    $(wildcard include/config/ACPI_PCC) \
-    $(wildcard include/config/ACPI_FFH) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/resource_ext.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/mod_devicetable.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/mei.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/mei_uuid.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/property.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/fwnode.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acpi.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/platform/acenv.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/platform/acgcc.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/platform/aclinux.h \
-    $(wildcard include/config/ACPI_REDUCED_HARDWARE_ONLY) \
-    $(wildcard include/config/ACPI_DEBUG) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ctype.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acnames.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/actypes.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acexcep.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/actbl.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/actbl1.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/actbl2.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/actbl3.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acrestyp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/platform/acenvex.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/platform/aclinuxex.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/platform/acgccex.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acoutput.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acpiosxf.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acpixf.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acconfig.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acbuffer.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/acpi/acpi_numa.h \
-    $(wildcard include/config/ACPI_HMAT) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/regulator/consumer.h \
-    $(wildcard include/config/REGULATOR) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/suspend.h \
-    $(wildcard include/config/VT) \
-    $(wildcard include/config/HIBERNATION_SNAPSHOT_DEV) \
-    $(wildcard include/config/PM_SLEEP_DEBUG) \
-    $(wildcard include/config/PM_AUTOSLEEP) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/swap.h \
-    $(wildcard include/config/DEVICE_PRIVATE) \
-    $(wildcard include/config/MIGRATION) \
-    $(wildcard include/config/THP_SWAP) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/memcontrol.h \
-    $(wildcard include/config/ZSWAP) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup.h \
-    $(wildcard include/config/DEBUG_CGROUP_REF) \
-    $(wildcard include/config/CGROUP_CPUACCT) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/w1.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/sock.h \
+    $(wildcard include/config/IPV6) \
+    $(wildcard include/config/SOCK_RX_QUEUE_MAPPING) \
+    $(wildcard include/config/NET_RX_BUSY_POLL) \
+    $(wildcard include/config/XFRM) \
+    $(wildcard include/config/SOCK_VALIDATE_XMIT) \
+    $(wildcard include/config/RPS) \
+    $(wildcard include/config/MPTCP) \
     $(wildcard include/config/SOCK_CGROUP_DATA) \
-    $(wildcard include/config/CGROUP_DATA) \
-    $(wildcard include/config/CGROUP_BPF) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/cgroupstats.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/taskstats.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/seq_file.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/string_helpers.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/string_choices.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ns_common.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/nsproxy.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/user_namespace.h \
-    $(wildcard include/config/INOTIFY_USER) \
-    $(wildcard include/config/FANOTIFY) \
-    $(wildcard include/config/PERSISTENT_KEYRINGS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kernel_stat.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/interrupt.h \
-    $(wildcard include/config/IRQ_FORCED_THREADING) \
-    $(wildcard include/config/GENERIC_IRQ_PROBE) \
-    $(wildcard include/config/IRQ_TIMINGS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/irqreturn.h \
+    $(wildcard include/config/INET) \
+    $(wildcard include/config/TLS_DEVICE) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/hardirq.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/context_tracking_state.h \
     $(wildcard include/config/CONTEXT_TRACKING_USER) \
@@ -1103,8 +1017,10 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
     $(wildcard include/config/GENERIC_IRQ_LEGACY) \
     $(wildcard include/config/GENERIC_IRQ_MULTI_HANDLER) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/irqhandler.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/irqreturn.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/io.h \
     $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/PCI) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/io.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/pgtable.h \
     $(wildcard include/config/HIGHPTE) \
@@ -1148,6 +1064,7 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
     $(wildcard include/config/GENERIC_PCI_IOMAP) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/logic_pio.h \
     $(wildcard include/config/INDIRECT_PIO) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/fwnode.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/vmalloc.h \
     $(wildcard include/config/HAVE_ARCH_HUGE_VMALLOC) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/vmalloc.h \
@@ -1160,187 +1077,6 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
     $(wildcard include/config/IRQ_DOMAIN) \
   arch/arm64/include/generated/asm/hw_irq.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/hw_irq.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup-defs.h \
-    $(wildcard include/config/CGROUP_NET_CLASSID) \
-    $(wildcard include/config/CGROUP_NET_PRIO) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/u64_stats_sync.h \
-  arch/arm64/include/generated/asm/local64.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/local64.h \
-  arch/arm64/include/generated/asm/local.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/local.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bpf-cgroup-defs.h \
-    $(wildcard include/config/BPF_LSM) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/psi_types.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup_subsys.h \
-    $(wildcard include/config/CGROUP_DEVICE) \
-    $(wildcard include/config/CGROUP_FREEZER) \
-    $(wildcard include/config/CGROUP_PERF) \
-    $(wildcard include/config/CGROUP_HUGETLB) \
-    $(wildcard include/config/CGROUP_PIDS) \
-    $(wildcard include/config/CGROUP_RDMA) \
-    $(wildcard include/config/CGROUP_MISC) \
-    $(wildcard include/config/CGROUP_DEBUG) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup_refcnt.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/vm_event_item.h \
-    $(wildcard include/config/MEMORY_BALLOON) \
-    $(wildcard include/config/BALLOON_COMPACTION) \
-    $(wildcard include/config/DEBUG_TLBFLUSH) \
-    $(wildcard include/config/PER_VMA_LOCK_STATS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/page_counter.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/vmpressure.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/eventfd.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/eventfd.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/mm.h \
-    $(wildcard include/config/HAVE_ARCH_MMAP_RND_BITS) \
-    $(wildcard include/config/HAVE_ARCH_MMAP_RND_COMPAT_BITS) \
-    $(wildcard include/config/MEM_SOFT_DIRTY) \
-    $(wildcard include/config/ARCH_USES_HIGH_VMA_FLAGS) \
-    $(wildcard include/config/ARCH_HAS_PKEYS) \
-    $(wildcard include/config/PPC) \
-    $(wildcard include/config/X86_USER_SHADOW_STACK) \
-    $(wildcard include/config/PARISC) \
-    $(wildcard include/config/SPARC64) \
-    $(wildcard include/config/HAVE_ARCH_USERFAULTFD_MINOR) \
-    $(wildcard include/config/SHMEM) \
-    $(wildcard include/config/ARCH_HAS_PTE_SPECIAL) \
-    $(wildcard include/config/DEBUG_VM_RB) \
-    $(wildcard include/config/PAGE_POISONING) \
-    $(wildcard include/config/INIT_ON_ALLOC_DEFAULT_ON) \
-    $(wildcard include/config/INIT_ON_FREE_DEFAULT_ON) \
-    $(wildcard include/config/DEBUG_PAGEALLOC) \
-    $(wildcard include/config/ARCH_WANT_OPTIMIZE_DAX_VMEMMAP) \
-    $(wildcard include/config/HUGETLBFS) \
-    $(wildcard include/config/MAPPING_DIRTY_HELPERS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/range.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/page_ext.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/stacktrace.h \
-    $(wildcard include/config/ARCH_STACKWALK) \
-    $(wildcard include/config/STACKTRACE) \
-    $(wildcard include/config/HAVE_RELIABLE_STACKTRACE) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/stackdepot.h \
-    $(wildcard include/config/STACKDEPOT_ALWAYS_INIT) \
-    $(wildcard include/config/STACKDEPOT) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/page_ref.h \
-    $(wildcard include/config/DEBUG_PAGE_REF) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/memremap.h \
-    $(wildcard include/config/PCI_P2PDMA) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/huge_mm.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/sched/coredump.h \
-    $(wildcard include/config/CORE_DUMP_DEFAULT_ELF_HEADERS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/vmstat.h \
-    $(wildcard include/config/VM_EVENT_COUNTERS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/writeback.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/flex_proportions.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/backing-dev-defs.h \
-    $(wildcard include/config/DEBUG_FS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/blk_types.h \
-    $(wildcard include/config/FAIL_MAKE_REQUEST) \
-    $(wildcard include/config/BLK_CGROUP_IOCOST) \
-    $(wildcard include/config/BLK_INLINE_ENCRYPTION) \
-    $(wildcard include/config/BLK_DEV_INTEGRITY) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bvec.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/highmem.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cacheflush.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/cacheflush.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kgdb.h \
-    $(wildcard include/config/HAVE_ARCH_KGDB) \
-    $(wildcard include/config/KGDB) \
-    $(wildcard include/config/SERIAL_KGDB_NMI) \
-    $(wildcard include/config/KGDB_HONOUR_BLOCKLIST) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kprobes.h \
-    $(wildcard include/config/KRETPROBE_ON_RETHOOK) \
-    $(wildcard include/config/KPROBES_SANITY_TEST) \
-    $(wildcard include/config/OPTPROBES) \
-    $(wildcard include/config/KPROBES_ON_FTRACE) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ftrace.h \
-    $(wildcard include/config/HAVE_FUNCTION_GRAPH_RETVAL) \
-    $(wildcard include/config/FUNCTION_TRACER) \
-    $(wildcard include/config/HAVE_DYNAMIC_FTRACE_WITH_ARGS) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_REGS) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_ARGS) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_DIRECT_CALLS) \
-    $(wildcard include/config/STACK_TRACER) \
-    $(wildcard include/config/DYNAMIC_FTRACE_WITH_CALL_OPS) \
-    $(wildcard include/config/FRAME_POINTER) \
-    $(wildcard include/config/FUNCTION_GRAPH_RETVAL) \
-    $(wildcard include/config/FUNCTION_PROFILER) \
-    $(wildcard include/config/FTRACE_SYSCALLS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/trace_recursion.h \
-    $(wildcard include/config/FTRACE_RECORD_RECURSION) \
-    $(wildcard include/config/ARCH_WANTS_NO_INSTR) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/trace_clock.h \
-  arch/arm64/include/generated/asm/trace_clock.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/trace_clock.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kallsyms.h \
-    $(wildcard include/config/KALLSYMS_ALL) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ptrace.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/pid_namespace.h \
-    $(wildcard include/config/MEMFD_CREATE) \
-    $(wildcard include/config/PID_NS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/ptrace.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/ftrace.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/compat.h \
-    $(wildcard include/config/ARCH_HAS_SYSCALL_WRAPPER) \
-    $(wildcard include/config/X86_X32_ABI) \
-    $(wildcard include/config/COMPAT_OLD_SIGACTION) \
-    $(wildcard include/config/ODD_RT_SIGACTION) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/socket.h \
-  arch/arm64/include/generated/uapi/asm/socket.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/asm-generic/socket.h \
-  arch/arm64/include/generated/uapi/asm/sockios.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/asm-generic/sockios.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/sockios.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/uio.h \
-    $(wildcard include/config/ARCH_HAS_COPY_MC) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/uio.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/socket.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/libc-compat.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/hdlc/ioctl.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/aio_abi.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/syscall_wrapper.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/freelist.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/rethook.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/kprobes.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/kprobes.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/probes.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/kgdb.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/debug-monitors.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/cacheflush.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kmsan.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/dma-direction.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/highmem-internal.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bio.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/mempool.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/node.h \
-    $(wildcard include/config/HMEM_REPORTING) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/pagemap.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/hugetlb_inline.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/mempolicy.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/freezer.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/rtmutex.h \
-    $(wildcard include/config/DEBUG_RT_MUTEXES) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/irqdomain.h \
-    $(wildcard include/config/IRQ_DOMAIN_NOMAP) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/irqdomain_defs.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/of.h \
-    $(wildcard include/config/OF_DYNAMIC) \
-    $(wildcard include/config/SPARC) \
-    $(wildcard include/config/OF_PROMTREE) \
-    $(wildcard include/config/OF_KOBJ) \
-    $(wildcard include/config/OF_NUMA) \
-    $(wildcard include/config/OF_OVERLAY) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/i2c.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/sock.h \
-    $(wildcard include/config/IPV6) \
-    $(wildcard include/config/SOCK_RX_QUEUE_MAPPING) \
-    $(wildcard include/config/NET_RX_BUSY_POLL) \
-    $(wildcard include/config/XFRM) \
-    $(wildcard include/config/SOCK_VALIDATE_XMIT) \
-    $(wildcard include/config/RPS) \
-    $(wildcard include/config/MPTCP) \
-    $(wildcard include/config/INET) \
-    $(wildcard include/config/TLS_DEVICE) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/netdevice.h \
     $(wildcard include/config/DCB) \
     $(wildcard include/config/HYPERV_NET) \
@@ -1379,12 +1115,15 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
     $(wildcard include/config/GARP) \
     $(wildcard include/config/MRP) \
     $(wildcard include/config/NET_DROP_MONITOR) \
+    $(wildcard include/config/CGROUP_NET_PRIO) \
     $(wildcard include/config/MACSEC) \
     $(wildcard include/config/NET_FLOW_LIMIT) \
     $(wildcard include/config/NET_EGRESS) \
     $(wildcard include/config/NET_DEV_REFCNT_TRACKER) \
     $(wildcard include/config/ETHTOOL_NETLINK) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/prefetch.h \
+  arch/arm64/include/generated/asm/local.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/local.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/dynamic_queue_limits.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/net_namespace.h \
     $(wildcard include/config/NF_CONNTRACK) \
@@ -1405,12 +1144,16 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/flow.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/in6.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/in6.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/libc-compat.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/core.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/mib.h \
     $(wildcard include/config/XFRM_STATISTICS) \
     $(wildcard include/config/TLS) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/snmp.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/snmp.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/u64_stats_sync.h \
+  arch/arm64/include/generated/asm/local64.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/local64.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/unix.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/packet.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/ipv4.h \
@@ -1442,6 +1185,16 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/netfilter.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/in.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/in.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/socket.h \
+  arch/arm64/include/generated/uapi/asm/socket.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/asm-generic/socket.h \
+  arch/arm64/include/generated/uapi/asm/sockios.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/asm-generic/sockios.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/sockios.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/uio.h \
+    $(wildcard include/config/ARCH_HAS_COPY_MC) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/uio.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/socket.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/conntrack.h \
     $(wildcard include/config/NF_CT_PROTO_DCCP) \
     $(wildcard include/config/NF_CT_PROTO_SCTP) \
@@ -1469,6 +1222,10 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/net_trackers.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ref_tracker.h \
     $(wildcard include/config/REF_TRACKER) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/stackdepot.h \
+    $(wildcard include/config/STACKDEPOT_ALWAYS_INIT) \
+    $(wildcard include/config/STACKDEPOT) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ns_common.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/skbuff.h \
     $(wildcard include/config/BRIDGE_NETFILTER) \
     $(wildcard include/config/NET_TC_SKB_EXT) \
@@ -1487,6 +1244,117 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
     $(wildcard include/config/PAGE_POOL) \
     $(wildcard include/config/NETWORK_PHY_TIMESTAMPING) \
     $(wildcard include/config/MCTP_FLOWS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bvec.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/highmem.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cacheflush.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/cacheflush.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kgdb.h \
+    $(wildcard include/config/HAVE_ARCH_KGDB) \
+    $(wildcard include/config/KGDB) \
+    $(wildcard include/config/SERIAL_KGDB_NMI) \
+    $(wildcard include/config/KGDB_HONOUR_BLOCKLIST) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kprobes.h \
+    $(wildcard include/config/KRETPROBE_ON_RETHOOK) \
+    $(wildcard include/config/KPROBES_SANITY_TEST) \
+    $(wildcard include/config/OPTPROBES) \
+    $(wildcard include/config/KPROBES_ON_FTRACE) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ftrace.h \
+    $(wildcard include/config/HAVE_FUNCTION_GRAPH_RETVAL) \
+    $(wildcard include/config/FUNCTION_TRACER) \
+    $(wildcard include/config/HAVE_DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_REGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_ARGS) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_DIRECT_CALLS) \
+    $(wildcard include/config/STACK_TRACER) \
+    $(wildcard include/config/DYNAMIC_FTRACE_WITH_CALL_OPS) \
+    $(wildcard include/config/FRAME_POINTER) \
+    $(wildcard include/config/FUNCTION_GRAPH_RETVAL) \
+    $(wildcard include/config/FUNCTION_PROFILER) \
+    $(wildcard include/config/FTRACE_SYSCALLS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/trace_recursion.h \
+    $(wildcard include/config/FTRACE_RECORD_RECURSION) \
+    $(wildcard include/config/ARCH_WANTS_NO_INSTR) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/interrupt.h \
+    $(wildcard include/config/IRQ_FORCED_THREADING) \
+    $(wildcard include/config/GENERIC_IRQ_PROBE) \
+    $(wildcard include/config/IRQ_TIMINGS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/trace_clock.h \
+  arch/arm64/include/generated/asm/trace_clock.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/trace_clock.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kallsyms.h \
+    $(wildcard include/config/KALLSYMS_ALL) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/mm.h \
+    $(wildcard include/config/HAVE_ARCH_MMAP_RND_BITS) \
+    $(wildcard include/config/HAVE_ARCH_MMAP_RND_COMPAT_BITS) \
+    $(wildcard include/config/MEM_SOFT_DIRTY) \
+    $(wildcard include/config/ARCH_USES_HIGH_VMA_FLAGS) \
+    $(wildcard include/config/ARCH_HAS_PKEYS) \
+    $(wildcard include/config/PPC) \
+    $(wildcard include/config/X86_USER_SHADOW_STACK) \
+    $(wildcard include/config/X86) \
+    $(wildcard include/config/PARISC) \
+    $(wildcard include/config/SPARC64) \
+    $(wildcard include/config/HAVE_ARCH_USERFAULTFD_MINOR) \
+    $(wildcard include/config/SHMEM) \
+    $(wildcard include/config/MIGRATION) \
+    $(wildcard include/config/ARCH_HAS_PTE_SPECIAL) \
+    $(wildcard include/config/DEBUG_VM_RB) \
+    $(wildcard include/config/PAGE_POISONING) \
+    $(wildcard include/config/INIT_ON_ALLOC_DEFAULT_ON) \
+    $(wildcard include/config/INIT_ON_FREE_DEFAULT_ON) \
+    $(wildcard include/config/DEBUG_PAGEALLOC) \
+    $(wildcard include/config/ARCH_WANT_OPTIMIZE_DAX_VMEMMAP) \
+    $(wildcard include/config/HUGETLBFS) \
+    $(wildcard include/config/MAPPING_DIRTY_HELPERS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/range.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/page_ext.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/stacktrace.h \
+    $(wildcard include/config/ARCH_STACKWALK) \
+    $(wildcard include/config/STACKTRACE) \
+    $(wildcard include/config/HAVE_RELIABLE_STACKTRACE) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/page_ref.h \
+    $(wildcard include/config/DEBUG_PAGE_REF) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/memremap.h \
+    $(wildcard include/config/DEVICE_PRIVATE) \
+    $(wildcard include/config/PCI_P2PDMA) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/huge_mm.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/sched/coredump.h \
+    $(wildcard include/config/CORE_DUMP_DEFAULT_ELF_HEADERS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/vmstat.h \
+    $(wildcard include/config/VM_EVENT_COUNTERS) \
+    $(wildcard include/config/DEBUG_TLBFLUSH) \
+    $(wildcard include/config/PER_VMA_LOCK_STATS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/vm_event_item.h \
+    $(wildcard include/config/MEMORY_BALLOON) \
+    $(wildcard include/config/BALLOON_COMPACTION) \
+    $(wildcard include/config/ZSWAP) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ptrace.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/pid_namespace.h \
+    $(wildcard include/config/MEMFD_CREATE) \
+    $(wildcard include/config/PID_NS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/nsproxy.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/ptrace.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/ftrace.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/compat.h \
+    $(wildcard include/config/ARCH_HAS_SYSCALL_WRAPPER) \
+    $(wildcard include/config/X86_X32_ABI) \
+    $(wildcard include/config/COMPAT_OLD_SIGACTION) \
+    $(wildcard include/config/ODD_RT_SIGACTION) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/hdlc/ioctl.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/aio_abi.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/syscall_wrapper.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/freelist.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/rethook.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/kprobes.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/kprobes.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/probes.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/kgdb.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/debug-monitors.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/cacheflush.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kmsan.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/dma-direction.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/highmem-internal.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/checksum.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/checksum.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/checksum.h \
@@ -1509,7 +1377,38 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if_packet.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/net_debug.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/seq_file_net.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/seq_file.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/string_helpers.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ctype.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/string_choices.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netprio_cgroup.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup.h \
+    $(wildcard include/config/DEBUG_CGROUP_REF) \
+    $(wildcard include/config/CGROUP_CPUACCT) \
+    $(wildcard include/config/CGROUP_DATA) \
+    $(wildcard include/config/CGROUP_BPF) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/cgroupstats.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/taskstats.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/user_namespace.h \
+    $(wildcard include/config/INOTIFY_USER) \
+    $(wildcard include/config/FANOTIFY) \
+    $(wildcard include/config/PERSISTENT_KEYRINGS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kernel_stat.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup-defs.h \
+    $(wildcard include/config/CGROUP_NET_CLASSID) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bpf-cgroup-defs.h \
+    $(wildcard include/config/BPF_LSM) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/psi_types.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup_subsys.h \
+    $(wildcard include/config/CGROUP_DEVICE) \
+    $(wildcard include/config/CGROUP_FREEZER) \
+    $(wildcard include/config/CGROUP_PERF) \
+    $(wildcard include/config/CGROUP_HUGETLB) \
+    $(wildcard include/config/CGROUP_PIDS) \
+    $(wildcard include/config/CGROUP_RDMA) \
+    $(wildcard include/config/CGROUP_MISC) \
+    $(wildcard include/config/CGROUP_DEBUG) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup_refcnt.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/neighbour.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/netlink.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/scm.h \
@@ -1536,6 +1435,22 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/pkt_sched.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/netdev.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/hashtable.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/page_counter.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/memcontrol.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/vmpressure.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/eventfd.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/eventfd.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/writeback.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/flex_proportions.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/backing-dev-defs.h \
+    $(wildcard include/config/DEBUG_FS) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/blk_types.h \
+    $(wildcard include/config/FAIL_MAKE_REQUEST) \
+    $(wildcard include/config/BLK_CGROUP_IOCOST) \
+    $(wildcard include/config/BLK_INLINE_ENCRYPTION) \
+    $(wildcard include/config/BLK_DEV_INTEGRITY) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bio.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/mempool.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/rculist_nulls.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/poll.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/poll.h \
@@ -1631,6 +1546,8 @@ deps_/home/fran/Desktop/SistemasDeComputacion/temperatura.o := \
     $(wildcard include/config/PM_SLEEP_SMP) \
     $(wildcard include/config/PM_SLEEP_SMP_NONZERO_CPU) \
     $(wildcard include/config/ARCH_HAS_CPU_FINALIZE_INIT) \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/node.h \
+    $(wildcard include/config/HMEM_REPORTING) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cpuhotplug.h \
     $(wildcard include/config/HOTPLUG_CORE_SYNC_DEAD) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cpu_smt.h \

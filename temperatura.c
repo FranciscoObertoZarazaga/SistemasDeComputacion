@@ -7,16 +7,16 @@
 #include <linux/kernel.h>
 #include <linux/kthread.h>
 #include <linux/delay.h>
-#include <linux/i2c.h>
+#include <linux/slab.h>
+#include <linux/w1.h>
 #include <net/sock.h>
 #include <net/tcp.h>
 #include <linux/inet.h>  // para in4_pton
+#include <linux/file.h>  // para struct file y funciones de archivos
 
-#define DRIVER_NAME "bh1750_driver"
-#define DRIVER_CLASS "BH1750Class"
-#define I2C_BUS_AVAILABLE 1
-#define SLAVE_DEVICE_NAME "BH1750"
-#define BH1750_SLAVE_ADDRESS 0x23
+#define DRIVER_NAME "ds18b20_driver"
+#define DRIVER_CLASS "DS18B20Class"
+#define W1_BUS_MASTER_PATH "/sys/bus/w1/devices/"
 
 #define SERVER_PORT 8001
 #define SERVER_ADDR "127.0.0.1"
@@ -24,9 +24,6 @@
 static dev_t my_device_nr;
 static struct class *my_class;
 static struct cdev my_device;
-
-static struct i2c_adapter *bh1750_i2c_adapter = NULL;
-static struct i2c_client *bh1750_i2c_client = NULL;
 static struct socket *sock;
 static struct task_struct *task;
 static int device_open = 0;
@@ -34,11 +31,6 @@ static int device_open = 0;
 static int setup_socket(void);
 static void close_socket(void);
 static int send_data_to_server(const char *data);
-
-// I2C Board Info
-static struct i2c_board_info bh1750_i2c_board_info = {
-    I2C_BOARD_INFO(SLAVE_DEVICE_NAME, BH1750_SLAVE_ADDRESS)
-};
 
 static int setup_socket(void) {
     struct sockaddr_in server;
@@ -94,29 +86,49 @@ static int send_data_to_server(const char *data) {
     return 0;
 }
 
-static int bh1750_read_light(void) {
+static int read_temperature(char *buffer, size_t size) {
+    struct file *f;
+    loff_t pos = 0;
     int ret;
-    char buf[2] = {0};
-    int lux_value;
 
-    ret = i2c_master_recv(bh1750_i2c_client, buf, 2);
-    if (ret < 0) {
-        printk(KERN_ERR "Failed to read data from BH1750 sensor\n");
-        return ret;
+    f = filp_open(W1_BUS_MASTER_PATH "28-xxxxxxxxxxxx/w1_slave", O_RDONLY, 0);
+    if (IS_ERR(f)) {
+        printk(KERN_ERR "Error opening w1_slave file\n");
+        return PTR_ERR(f);
     }
 
-    lux_value = (buf[0] << 8) | buf[1];
-    return lux_value;
+    ret = kernel_read(f, buffer, size, &pos);
+
+    filp_close(f, NULL);
+
+    return ret;
+}
+
+static int parse_temperature(const char *buffer) {
+    const char *temp_str;
+    int temp;
+
+    temp_str = strstr(buffer, "t=");
+    if (temp_str) {
+        temp = simple_strtol(temp_str + 2, NULL, 10);
+        return temp / 1000;  // Convert to Celsius
+    }
+
+    return -1;  // Error parsing temperature
 }
 
 static int sensor_thread(void *data) {
-    while (!kthread_should_stop()) {
-        char light_data[16];
-        int lux_value = bh1750_read_light();
+    char temp_data[128];
+    int temperature;
 
-        if (lux_value >= 0) {
-            snprintf(light_data, sizeof(light_data), "Light: %d\n", lux_value);
-            send_data_to_server(light_data);
+    while (!kthread_should_stop()) {
+        if (read_temperature(temp_data, sizeof(temp_data)) >= 0) {
+            temperature = parse_temperature(temp_data);
+            if (temperature >= 0) {
+                char temp_str[16];
+                snprintf(temp_str, sizeof(temp_str), "Temp: %d\n", temperature);
+                send_data_to_server(temp_str);
+            }
         }
 
         msleep(1000);  // Send data every 1 second
@@ -167,7 +179,7 @@ static struct file_operations fops = {
 };
 
 static int __init ModuleInit(void) {
-    printk("Initializing BH1750 driver...\n");
+    printk("Initializing DS18B20 driver...\n");
 
     // Allocate device number
     if (alloc_chrdev_region(&my_device_nr, 0, 1, DRIVER_NAME) < 0) {
@@ -194,23 +206,7 @@ static int __init ModuleInit(void) {
         goto AddError;
     }
 
-    // Initialize I2C
-    bh1750_i2c_adapter = i2c_get_adapter(1);  // Cambia a 1 si estás usando i2c-1
-    if (bh1750_i2c_adapter != NULL) {
-        bh1750_i2c_client = i2c_new_client_device(bh1750_i2c_adapter, &bh1750_i2c_board_info);
-        if (bh1750_i2c_client != NULL) {
-            printk("BH1750 I2C client created\n");
-        } else {
-            printk("Failed to create BH1750 I2C client\n");
-            goto AddError;
-        }
-        i2c_put_adapter(bh1750_i2c_adapter);
-    } else {
-        printk("Failed to get I2C adapter\n");
-        goto AddError;
-    }
-
-    printk("BH1750 driver initialized.\n");
+    printk("DS18B20 driver initialized.\n");
     return 0;
 
 AddError:
@@ -227,14 +223,11 @@ static void __exit ModuleExit(void) {
         kthread_stop(task);
         close_socket();
     }
-    if (bh1750_i2c_client) {
-        i2c_unregister_device(bh1750_i2c_client);
-    }
     cdev_del(&my_device);
     device_destroy(my_class, my_device_nr);
     class_destroy(my_class);
     unregister_chrdev_region(my_device_nr, 1);
-    printk("BH1750 driver removed.\n");
+    printk("DS18B20 driver removed.\n");
 }
 
 module_init(ModuleInit);
@@ -242,4 +235,4 @@ module_exit(ModuleExit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("GRUPO_LIPCEN_OBERTO_FERNANDEZ");
-MODULE_DESCRIPTION("Driver de kernel para BH1750");
+MODULE_DESCRIPTION("Driver de kernel para DS18B20");
