@@ -18,7 +18,7 @@
 #define SLAVE_DEVICE_NAME "BH1750"
 #define BH1750_SLAVE_ADDRESS 0x23
 
-#define SERVER_PORT 8002
+#define SERVER_PORT 8001
 #define SERVER_ADDR "127.0.0.1"
 
 static dev_t my_device_nr;
