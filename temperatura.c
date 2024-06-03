@@ -195,7 +195,7 @@ static int __init ModuleInit(void) {
     }
 
     // Initialize I2C
-    bh1750_i2c_adapter = i2c_get_adapter(I2C_BUS_AVAILABLE);
+    bh1750_i2c_adapter = i2c_get_adapter(1);  // Cambia a 1 si estás usando i2c-1
     if (bh1750_i2c_adapter != NULL) {
         bh1750_i2c_client = i2c_new_client_device(bh1750_i2c_adapter, &bh1750_i2c_board_info);
         if (bh1750_i2c_client != NULL) {
