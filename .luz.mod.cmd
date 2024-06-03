@@ -1,0 +1,1 @@
+savedcmd_/home/fran/Desktop/SistemasDeComputacion/luz.mod := printf '%s\n'   luz.o | awk '!x[$$0]++ { print("/home/fran/Desktop/SistemasDeComputacion/"$$0) }' > /home/fran/Desktop/SistemasDeComputacion/luz.mod

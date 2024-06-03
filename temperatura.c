@@ -7,21 +7,26 @@
 #include <linux/kernel.h>
 #include <linux/kthread.h>
 #include <linux/delay.h>
-#include <linux/string.h>
+#include <linux/i2c.h>
 #include <net/sock.h>
 #include <net/tcp.h>
+#include <linux/inet.h>  // para in4_pton
 
-#define DRIVER_NAME "ds18b20_driver"
-#define DRIVER_CLASS "DS18B20Class"
-#define TEMP_SENSOR_GPIO 4  // GPIO pin for DS18B20
-#define SERVER_PORT 8001
+#define DRIVER_NAME "bh1750_driver"
+#define DRIVER_CLASS "BH1750Class"
+#define I2C_BUS_AVAILABLE 1
+#define SLAVE_DEVICE_NAME "BH1750"
+#define BH1750_SLAVE_ADDRESS 0x23
+
+#define SERVER_PORT 8002
 #define SERVER_ADDR "127.0.0.1"
 
-// Variables for device and device class
 static dev_t my_device_nr;
 static struct class *my_class;
 static struct cdev my_device;
 
+static struct i2c_adapter *bh1750_i2c_adapter = NULL;
+static struct i2c_client *bh1750_i2c_client = NULL;
 static struct socket *sock;
 static struct task_struct *task;
 static int device_open = 0;
@@ -30,7 +35,46 @@ static int setup_socket(void);
 static void close_socket(void);
 static int send_data_to_server(const char *data);
 
-// Function to send data to the server
+// I2C Board Info
+static struct i2c_board_info bh1750_i2c_board_info = {
+    I2C_BOARD_INFO(SLAVE_DEVICE_NAME, BH1750_SLAVE_ADDRESS)
+};
+
+static int setup_socket(void) {
+    struct sockaddr_in server;
+    int ret;
+
+    ret = sock_create(PF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+    if (ret < 0) {
+        printk(KERN_ERR "Error creating socket: %d\n", ret);
+        return ret;
+    }
+
+    memset(&server, 0, sizeof(server));
+    server.sin_family = AF_INET;
+    if (in4_pton(SERVER_ADDR, -1, (u8 *)&server.sin_addr.s_addr, -1, NULL) == 0) {
+        printk(KERN_ERR "Invalid server address\n");
+        sock_release(sock);
+        return -EINVAL;
+    }
+    server.sin_port = htons(SERVER_PORT);
+
+    ret = sock->ops->connect(sock, (struct sockaddr *)&server, sizeof(server), 0);
+    if (ret < 0) {
+        printk(KERN_ERR "Error connecting to server: %d\n", ret);
+        sock_release(sock);
+        return ret;
+    }
+
+    return 0;
+}
+
+static void close_socket(void) {
+    if (sock) {
+        sock_release(sock);
+    }
+}
+
 static int send_data_to_server(const char *data) {
     struct msghdr msg;
     struct kvec vec;
@@ -50,22 +94,37 @@ static int send_data_to_server(const char *data) {
     return 0;
 }
 
-// Thread function to read sensor data and send it
+static int bh1750_read_light(void) {
+    int ret;
+    char buf[2] = {0};
+    int lux_value;
+
+    ret = i2c_master_recv(bh1750_i2c_client, buf, 2);
+    if (ret < 0) {
+        printk(KERN_ERR "Failed to read data from BH1750 sensor\n");
+        return ret;
+    }
+
+    lux_value = (buf[0] << 8) | buf[1];
+    return lux_value;
+}
+
 static int sensor_thread(void *data) {
     while (!kthread_should_stop()) {
-        char temp_data[16];
-        // Aquí leerías los datos reales del sensor DS18B20
-        // Esto es solo un ejemplo
-        snprintf(temp_data, sizeof(temp_data), "Temp: %d\n", 25);  // Valor de temperatura de ejemplo
+        char light_data[16];
+        int lux_value = bh1750_read_light();
 
-        send_data_to_server(temp_data);
-        msleep(1000);  // Enviar datos cada 1 segundo
+        if (lux_value >= 0) {
+            snprintf(light_data, sizeof(light_data), "Light: %d\n", lux_value);
+            send_data_to_server(light_data);
+        }
+
+        msleep(1000);  // Send data every 1 second
     }
 
     return 0;
 }
 
-// Open function
 static int driver_open(struct inode *inode, struct file *file) {
     if (device_open) {
         return -EBUSY;
@@ -88,7 +147,6 @@ static int driver_open(struct inode *inode, struct file *file) {
     return 0;
 }
 
-// Release function
 static int driver_release(struct inode *inode, struct file *file) {
     device_open--;
     module_put(THIS_MODULE);
@@ -102,49 +160,14 @@ static int driver_release(struct inode *inode, struct file *file) {
     return 0;
 }
 
-// Setup the network socket
-static int setup_socket(void) {
-    struct sockaddr_in server;
-    int ret;
-
-    ret = sock_create(PF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-    if (ret < 0) {
-        printk(KERN_ERR "Error creating socket: %d\n", ret);
-        return ret;
-    }
-
-    memset(&server, 0, sizeof(server));
-    server.sin_family = AF_INET;
-    server.sin_addr.s_addr = in_aton(SERVER_ADDR);
-    server.sin_port = htons(SERVER_PORT);
-
-    ret = sock->ops->connect(sock, (struct sockaddr *)&server, sizeof(server), 0);
-    if (ret < 0) {
-        printk(KERN_ERR "Error connecting to server: %d\n", ret);
-        sock_release(sock);
-        return ret;
-    }
-
-    return 0;
-}
-
-// Close the socket
-static void close_socket(void) {
-    if (sock) {
-        sock_release(sock);
-    }
-}
-
-// File operations structure
 static struct file_operations fops = {
     .owner = THIS_MODULE,
     .open = driver_open,
     .release = driver_release
 };
 
-// Module initialization function
 static int __init ModuleInit(void) {
-    printk("Initializing DS18B20 driver...\n");
+    printk("Initializing BH1750 driver...\n");
 
     // Allocate device number
     if (alloc_chrdev_region(&my_device_nr, 0, 1, DRIVER_NAME) < 0) {
@@ -153,7 +176,7 @@ static int __init ModuleInit(void) {
     }
 
     // Create device class
-    if ((my_class = class_create(THIS_MODULE, DRIVER_CLASS)) == NULL) {
+    if ((my_class = class_create(DRIVER_CLASS)) == NULL) {
         printk("Device class creation failed!\n");
         goto ClassError;
     }
@@ -171,7 +194,23 @@ static int __init ModuleInit(void) {
         goto AddError;
     }
 
-    printk("DS18B20 driver initialized.\n");
+    // Initialize I2C
+    bh1750_i2c_adapter = i2c_get_adapter(I2C_BUS_AVAILABLE);
+    if (bh1750_i2c_adapter != NULL) {
+        bh1750_i2c_client = i2c_new_client_device(bh1750_i2c_adapter, &bh1750_i2c_board_info);
+        if (bh1750_i2c_client != NULL) {
+            printk("BH1750 I2C client created\n");
+        } else {
+            printk("Failed to create BH1750 I2C client\n");
+            goto AddError;
+        }
+        i2c_put_adapter(bh1750_i2c_adapter);
+    } else {
+        printk("Failed to get I2C adapter\n");
+        goto AddError;
+    }
+
+    printk("BH1750 driver initialized.\n");
     return 0;
 
 AddError:
@@ -183,22 +222,24 @@ ClassError:
     return -1;
 }
 
-// Module cleanup function
 static void __exit ModuleExit(void) {
     if (device_open) {
         kthread_stop(task);
         close_socket();
     }
+    if (bh1750_i2c_client) {
+        i2c_unregister_device(bh1750_i2c_client);
+    }
     cdev_del(&my_device);
     device_destroy(my_class, my_device_nr);
     class_destroy(my_class);
     unregister_chrdev_region(my_device_nr, 1);
-    printk("DS18B20 driver removed.\n");
+    printk("BH1750 driver removed.\n");
 }
 
 module_init(ModuleInit);
 module_exit(ModuleExit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Tu Nombre");
-MODULE_DESCRIPTION("Driver de kernel para DS18B20");
+MODULE_AUTHOR("GRUPO_LIPCEN_OBERTO_FERNANDEZ");
+MODULE_DESCRIPTION("Driver de kernel para BH1750");

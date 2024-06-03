@@ -1,0 +1,1 @@
+savedcmd_/home/fran/Desktop/SistemasDeComputacion/temperatura.mod := printf '%s\n'   temperatura.o | awk '!x[$$0]++ { print("/home/fran/Desktop/SistemasDeComputacion/"$$0) }' > /home/fran/Desktop/SistemasDeComputacion/temperatura.mod

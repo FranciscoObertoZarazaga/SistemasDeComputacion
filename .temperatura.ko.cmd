@@ -1,0 +1,1 @@
+savedcmd_/home/fran/Desktop/SistemasDeComputacion/temperatura.ko := ld -r -EL  -maarch64elf -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T arch/arm64/module.lds -o /home/fran/Desktop/SistemasDeComputacion/temperatura.ko /home/fran/Desktop/SistemasDeComputacion/temperatura.o /home/fran/Desktop/SistemasDeComputacion/temperatura.mod.o;  true

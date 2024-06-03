@@ -1,0 +1,1 @@
+savedcmd_/home/fran/Desktop/SistemasDeComputacion/modules.order := {   echo /home/fran/Desktop/SistemasDeComputacion/temperatura.o;   echo /home/fran/Desktop/SistemasDeComputacion/luz.o; :; } > /home/fran/Desktop/SistemasDeComputacion/modules.order

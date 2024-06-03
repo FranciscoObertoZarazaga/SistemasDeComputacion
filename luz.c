@@ -10,6 +10,7 @@
 #include <linux/i2c.h>
 #include <net/sock.h>
 #include <net/tcp.h>
+#include <linux/inet.h>  // para in4_pton
 
 #define DRIVER_NAME "bh1750_driver"
 #define DRIVER_CLASS "BH1750Class"
@@ -51,7 +52,11 @@ static int setup_socket(void) {
 
     memset(&server, 0, sizeof(server));
     server.sin_family = AF_INET;
-    server.sin_addr.s_addr = in_aton(SERVER_ADDR);
+    if (in4_pton(SERVER_ADDR, -1, (u8 *)&server.sin_addr.s_addr, -1, NULL) == 0) {
+        printk(KERN_ERR "Invalid server address\n");
+        sock_release(sock);
+        return -EINVAL;
+    }
     server.sin_port = htons(SERVER_PORT);
 
     ret = sock->ops->connect(sock, (struct sockaddr *)&server, sizeof(server), 0);
@@ -171,7 +176,7 @@ static int __init ModuleInit(void) {
     }
 
     // Create device class
-    if ((my_class = class_create(THIS_MODULE, DRIVER_CLASS)) == NULL) {
+    if ((my_class = class_create(DRIVER_CLASS)) == NULL) {
         printk("Device class creation failed!\n");
         goto ClassError;
     }
@@ -236,5 +241,5 @@ module_init(ModuleInit);
 module_exit(ModuleExit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("Tu Nombre");
+MODULE_AUTHOR("GRUPO_LIPCEN_OBERTO_FERNANDEZ");
 MODULE_DESCRIPTION("Driver de kernel para BH1750");
