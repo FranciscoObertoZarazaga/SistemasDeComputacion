@@ -97,7 +97,7 @@ static int sensor_thread(void *data) {
             temperature = parse_temperature(temp_data);
             if (temperature >= 0) {
                 char temp_str[32];
-                snprintf(temp_str, sizeof(temp_str), "Temp: %d\n", temperature);
+                snprintf(temp_str, sizeof(temp_str), "%d", temperature);
                 printk(KERN_INFO "Writing temperature to file: %s\n", temp_str);  // Mensaje de depuración
                 write_temperature_to_file(temp_str);
             } else {
@@ -157,7 +157,7 @@ static ssize_t driver_read(struct file *file, char __user *user_buf, size_t coun
     if (read_temperature(buffer, sizeof(buffer)) >= 0) {
         temperature = parse_temperature(buffer);
         if (temperature >= 0) {
-            snprintf(temp_str, sizeof(temp_str), "Temp: %d\n", temperature);
+            snprintf(temp_str, sizeof(temp_str), "%d", temperature);
             len = strlen(temp_str);
 
             if (copy_to_user(user_buf, temp_str, len)) {
