@@ -1331,73 +1331,23 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
     $(wildcard include/config/OF_NUMA) \
     $(wildcard include/config/OF_OVERLAY) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/i2c.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/sock.h \
-    $(wildcard include/config/IPV6) \
-    $(wildcard include/config/SOCK_RX_QUEUE_MAPPING) \
-    $(wildcard include/config/NET_RX_BUSY_POLL) \
-    $(wildcard include/config/XFRM) \
-    $(wildcard include/config/SOCK_VALIDATE_XMIT) \
-    $(wildcard include/config/RPS) \
-    $(wildcard include/config/MPTCP) \
-    $(wildcard include/config/INET) \
-    $(wildcard include/config/TLS_DEVICE) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/netdevice.h \
-    $(wildcard include/config/DCB) \
-    $(wildcard include/config/HYPERV_NET) \
-    $(wildcard include/config/WLAN) \
-    $(wildcard include/config/AX25) \
-    $(wildcard include/config/MAC80211_MESH) \
-    $(wildcard include/config/NET_IPIP) \
-    $(wildcard include/config/NET_IPGRE) \
-    $(wildcard include/config/IPV6_SIT) \
-    $(wildcard include/config/IPV6_TUNNEL) \
-    $(wildcard include/config/NETPOLL) \
-    $(wildcard include/config/XPS) \
-    $(wildcard include/config/XDP_SOCKETS) \
-    $(wildcard include/config/BQL) \
-    $(wildcard include/config/RFS_ACCEL) \
-    $(wildcard include/config/FCOE) \
-    $(wildcard include/config/XFRM_OFFLOAD) \
-    $(wildcard include/config/NET_POLL_CONTROLLER) \
-    $(wildcard include/config/LIBFCOE) \
-    $(wildcard include/config/WIRELESS_EXT) \
-    $(wildcard include/config/NET_L3_MASTER_DEV) \
-    $(wildcard include/config/VLAN_8021Q) \
-    $(wildcard include/config/NET_DSA) \
-    $(wildcard include/config/TIPC) \
-    $(wildcard include/config/ATALK) \
-    $(wildcard include/config/CFG80211) \
-    $(wildcard include/config/IEEE802154) \
-    $(wildcard include/config/6LOWPAN) \
-    $(wildcard include/config/MPLS_ROUTING) \
-    $(wildcard include/config/MCTP) \
-    $(wildcard include/config/NET_XGRESS) \
-    $(wildcard include/config/NETFILTER_INGRESS) \
-    $(wildcard include/config/NETFILTER_EGRESS) \
-    $(wildcard include/config/NET_SCHED) \
-    $(wildcard include/config/PCPU_DEV_REFCNT) \
-    $(wildcard include/config/GARP) \
-    $(wildcard include/config/MRP) \
-    $(wildcard include/config/NET_DROP_MONITOR) \
-    $(wildcard include/config/MACSEC) \
-    $(wildcard include/config/NET_FLOW_LIMIT) \
-    $(wildcard include/config/NET_EGRESS) \
-    $(wildcard include/config/NET_DEV_REFCNT_TRACKER) \
-    $(wildcard include/config/ETHTOOL_NETLINK) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/prefetch.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/dynamic_queue_limits.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/inet.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/net_namespace.h \
     $(wildcard include/config/NF_CONNTRACK) \
     $(wildcard include/config/NF_FLOW_TABLE) \
     $(wildcard include/config/UNIX) \
+    $(wildcard include/config/IPV6) \
     $(wildcard include/config/IEEE802154_6LOWPAN) \
     $(wildcard include/config/IP_SCTP) \
     $(wildcard include/config/NETFILTER) \
     $(wildcard include/config/NF_TABLES) \
     $(wildcard include/config/WEXT_CORE) \
+    $(wildcard include/config/XFRM) \
     $(wildcard include/config/IP_VS) \
     $(wildcard include/config/MPLS) \
     $(wildcard include/config/CAN) \
+    $(wildcard include/config/XDP_SOCKETS) \
+    $(wildcard include/config/MCTP) \
     $(wildcard include/config/CRYPTO_USER) \
     $(wildcard include/config/SMC) \
     $(wildcard include/config/NET_NS) \
@@ -1406,9 +1356,11 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/in6.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/in6.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/core.h \
+    $(wildcard include/config/RPS) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/mib.h \
     $(wildcard include/config/XFRM_STATISTICS) \
     $(wildcard include/config/TLS) \
+    $(wildcard include/config/MPTCP) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/snmp.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/snmp.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/unix.h \
@@ -1416,6 +1368,7 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/ipv4.h \
     $(wildcard include/config/IP_MULTIPLE_TABLES) \
     $(wildcard include/config/IP_ROUTE_CLASSID) \
+    $(wildcard include/config/NET_L3_MASTER_DEV) \
     $(wildcard include/config/IP_MROUTE) \
     $(wildcard include/config/IP_MROUTE_MULTIPLE_TABLES) \
     $(wildcard include/config/IP_ROUTE_MULTIPATH) \
@@ -1467,6 +1420,7 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/bpf.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/mctp.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/net_trackers.h \
+    $(wildcard include/config/NET_DEV_REFCNT_TRACKER) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ref_tracker.h \
     $(wildcard include/config/REF_TRACKER) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/skbuff.h \
@@ -1476,12 +1430,17 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
     $(wildcard include/config/DEBUG_KMAP_LOCAL_FORCE_MAP) \
     $(wildcard include/config/NET_SOCK_MSG) \
     $(wildcard include/config/SKB_EXTENSIONS) \
+    $(wildcard include/config/NET_XGRESS) \
     $(wildcard include/config/WIRELESS) \
     $(wildcard include/config/IPV6_NDISC_NODETYPE) \
     $(wildcard include/config/NETFILTER_XT_TARGET_TRACE) \
     $(wildcard include/config/NET_SWITCHDEV) \
     $(wildcard include/config/NET_REDIRECT) \
     $(wildcard include/config/NETFILTER_SKIP_EGRESS) \
+    $(wildcard include/config/TLS_DEVICE) \
+    $(wildcard include/config/NET_SCHED) \
+    $(wildcard include/config/NET_RX_BUSY_POLL) \
+    $(wildcard include/config/XPS) \
     $(wildcard include/config/NETWORK_SECMARK) \
     $(wildcard include/config/DEBUG_NET) \
     $(wildcard include/config/PAGE_POOL) \
@@ -1509,162 +1468,7 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if_packet.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/net_debug.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/seq_file_net.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netprio_cgroup.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/neighbour.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/netlink.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/scm.h \
-    $(wildcard include/config/SECURITY_NETWORK) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/net.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/sockptr.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/net.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/security.h \
-    $(wildcard include/config/SECURITY_INFINIBAND) \
-    $(wildcard include/config/SECURITY_NETWORK_XFRM) \
-    $(wildcard include/config/SECURITY_PATH) \
-    $(wildcard include/config/SECURITYFS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kernel_read_file.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/file.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/compat.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/netlink.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/netdevice.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/if_ether.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/if_link.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if_link.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if_bonding.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/pkt_cls.h \
-    $(wildcard include/config/NET_CLS_ACT) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/pkt_sched.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/netdev.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/hashtable.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/rculist_nulls.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/poll.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/poll.h \
-  arch/arm64/include/generated/uapi/asm/poll.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/asm-generic/poll.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/eventpoll.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/indirect_call_wrapper.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/dst.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/rtnetlink.h \
-    $(wildcard include/config/NET_INGRESS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/rtnetlink.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if_addr.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/rcuref.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/neighbour.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/rtnetlink.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netlink.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/tcp_states.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/net_tstamp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/net_tstamp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/l3mdev.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/fib_rules.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/fib_rules.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/fib_notifier.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/tcp.h \
-    $(wildcard include/config/SYN_COOKIES) \
-    $(wildcard include/config/TCP_MD5SIG) \
-    $(wildcard include/config/BPF) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/tcp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/win_minmax.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/inet_connection_sock.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/inet_sock.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/jhash.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/unaligned/packed_struct.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/request_sock.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/netns/hash.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/inet_timewait_sock.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/timewait_sock.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/tcp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/inet_hashtables.h \
-    $(wildcard include/config/IP_DCCP) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ip.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/ip.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/ipv6.h \
-    $(wildcard include/config/IPV6_ROUTER_PREF) \
-    $(wildcard include/config/IPV6_ROUTE_INFO) \
-    $(wildcard include/config/IPV6_OPTIMISTIC_DAD) \
-    $(wildcard include/config/IPV6_SEG6_HMAC) \
-    $(wildcard include/config/IPV6_MIP6) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/ipv6.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/udp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/udp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/ip.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/route.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/inetpeer.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/ipv6.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/jump_label_ratelimit.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/if_inet6.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/inet_dscp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/ip_fib.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/arp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/if_arp.h \
-    $(wildcard include/config/FIREWIRE_NET) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if_arp.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/ndisc.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/ipv6_stubs.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/icmpv6.h \
-    $(wildcard include/config/NF_NAT) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/in_route.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/route.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/lwtunnel.h \
-    $(wildcard include/config/LWTUNNEL) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/lwtunnel.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/sock_reuseport.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/filter.h \
-    $(wildcard include/config/BPF_JIT_ALWAYS_ON) \
-    $(wildcard include/config/HAVE_EBPF_JIT) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bpf.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/bpf.h \
-    $(wildcard include/config/BPF_LIRC_MODE2) \
-    $(wildcard include/config/EFFICIENT_UNALIGNED_ACCESS) \
-    $(wildcard include/config/BPF_KPROBE_OVERRIDE) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/bpf_common.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/filter.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bpfptr.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/btf.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bsearch.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/btf_ids.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/btf.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/rcupdate_trace.h \
-    $(wildcard include/config/TASKS_TRACE_RCU_READ_MB) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/static_call.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cpu.h \
-    $(wildcard include/config/PM_SLEEP_SMP) \
-    $(wildcard include/config/PM_SLEEP_SMP_NONZERO_CPU) \
-    $(wildcard include/config/ARCH_HAS_CPU_FINALIZE_INIT) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cpuhotplug.h \
-    $(wildcard include/config/HOTPLUG_CORE_SYNC_DEAD) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cpu_smt.h \
-    $(wildcard include/config/HOTPLUG_SMT) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bpf_types.h \
-    $(wildcard include/config/NETFILTER_BPF_LINK) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/sched/clock.h \
-    $(wildcard include/config/GENERIC_SCHED_CLOCK) \
-    $(wildcard include/config/HAVE_UNSTABLE_SCHED_CLOCK) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/set_memory.h \
-    $(wildcard include/config/ARCH_HAS_SET_MEMORY) \
-    $(wildcard include/config/ARCH_HAS_SET_DIRECT_MAP) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/set_memory.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/set_memory.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/if_vlan.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/etherdevice.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/crc32.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bitrev.h \
-    $(wildcard include/config/HAVE_ARCH_BITREVERSE) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/arch/arm64/include/asm/bitrev.h \
-  arch/arm64/include/generated/asm/unaligned.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/unaligned.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/if_vlan.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/crypto/sha1.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/sch_generic.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/gen_stats.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/uapi/linux/gen_stats.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/flow_offload.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/inet_ecn.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/dsfield.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/mptcp.h \
-    $(wildcard include/config/MPTCP_IPV6) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bpf-cgroup.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/inet.h \
 
 /home/fran/Desktop/SistemasDeComputacion/luz.o: $(deps_/home/fran/Desktop/SistemasDeComputacion/luz.o)
 
