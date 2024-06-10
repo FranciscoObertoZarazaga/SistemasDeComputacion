@@ -974,10 +974,6 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
     $(wildcard include/config/GPIOLIB) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/gpio/consumer.h \
     $(wildcard include/config/GPIO_SYSFS) \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kthread.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/delay.h \
-  arch/arm64/include/generated/asm/delay.h \
-  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/delay.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/i2c.h \
     $(wildcard include/config/I2C) \
     $(wildcard include/config/I2C_SLAVE) \
@@ -1171,6 +1167,7 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/bpf-cgroup-defs.h \
     $(wildcard include/config/BPF_LSM) \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/psi_types.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/kthread.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/cgroup_subsys.h \
     $(wildcard include/config/CGROUP_DEVICE) \
     $(wildcard include/config/CGROUP_FREEZER) \
@@ -1469,6 +1466,9 @@ deps_/home/fran/Desktop/SistemasDeComputacion/luz.o := \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/net/net_debug.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/seq_file_net.h \
   /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/file.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/linux/delay.h \
+  arch/arm64/include/generated/asm/delay.h \
+  /usr/src/linux-headers-6.6.31+rpt-common-rpi/include/asm-generic/delay.h \
 
 /home/fran/Desktop/SistemasDeComputacion/luz.o: $(deps_/home/fran/Desktop/SistemasDeComputacion/luz.o)
 

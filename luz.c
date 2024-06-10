@@ -5,8 +5,6 @@
 #include <linux/uaccess.h>
 #include <linux/gpio.h>
 #include <linux/kernel.h>
-#include <linux/kthread.h>
-#include <linux/delay.h>
 #include <linux/i2c.h>
 #include <linux/fcntl.h>
 #include <linux/slab.h>
@@ -15,6 +13,7 @@
 #include <linux/file.h>
 #include <linux/fs.h>
 #include <linux/device.h>
+#include <linux/delay.h>  // Include for msleep
 
 #define DRIVER_NAME "bh1750_driver"
 #define DRIVER_CLASS "BH1750ClassLuz"
@@ -28,9 +27,7 @@ static struct cdev my_device;
 static int device_open = 0;
 static struct i2c_adapter *bh1750_i2c_adapter = NULL;
 static struct i2c_client *bh1750_i2c_client = NULL;
-static struct task_struct *task;
 static int current_measurement = 0;
-static DEFINE_MUTEX(measurement_mutex);
 
 // I2C Board Info
 static struct i2c_board_info bh1750_i2c_board_info = {
@@ -64,35 +61,24 @@ static int bh1750_read_light_level(void) {
     return lux;
 }
 
-// Hilo de medición
-static int measurement_thread(void *data) {
-    while (!kthread_should_stop()) {
-        int measurement = bh1750_read_light_level();
-        if (measurement < 0) {
-            printk(KERN_ERR "Measurement failed\n");
-            msleep(100); // Esperar antes de reintentar
-            continue;
-        }
-
-        // Actualizar la medición actual
-        mutex_lock(&measurement_mutex);
-        current_measurement = measurement;
-        mutex_unlock(&measurement_mutex);
-
-        msleep(1000); // Esperar 1 segundos antes de la próxima medición
-    }
-    return 0;
-}
-
 // Función de lectura
 static ssize_t dev_read(struct file *filep, char *buffer, size_t len, loff_t *offset) {
+    static int read_done = 0;  // Variable estática para controlar si ya se ha realizado una lectura
     char buf[16];
     int measurement;
     int ret;
 
-    mutex_lock(&measurement_mutex);
-    measurement = current_measurement;
-    mutex_unlock(&measurement_mutex);
+    if (read_done) {
+        read_done = 0;  // Reset para la próxima apertura del archivo
+        return 0;  // Indicar que no hay más datos que leer
+    }
+
+    // Realizar la medición
+    measurement = bh1750_read_light_level();
+    if (measurement < 0) {
+        printk(KERN_ERR "Measurement failed\n");
+        return -EFAULT;
+    }
 
     snprintf(buf, sizeof(buf), "%d\n", measurement);
     ret = copy_to_user(buffer, buf, strlen(buf));
@@ -100,6 +86,8 @@ static ssize_t dev_read(struct file *filep, char *buffer, size_t len, loff_t *of
         printk(KERN_ERR "Failed to send measurement to user\n");
         return -EFAULT;
     }
+
+    read_done = 1;  // Indicar que se ha realizado una lectura
 
     return strlen(buf);
 }
@@ -126,7 +114,7 @@ static struct file_operations fops = {
 };
 
 static int __init ModuleInit(void) {
-    int ret;
+    int ret;  // Variable to store return values
 
     // Allocate device number
     if (alloc_chrdev_region(&my_device_nr, 0, 1, DRIVER_NAME) < 0) {
@@ -183,32 +171,18 @@ static int __init ModuleInit(void) {
         return -1;
     }
 
-    // Start measurement thread
-    task = kthread_run(measurement_thread, NULL, "measurement_thread");
-    if (IS_ERR(task)) {
-        printk(KERN_ERR "Failed to create measurement thread\n");
-        i2c_unregister_device(bh1750_i2c_client);
-        i2c_put_adapter(bh1750_i2c_adapter);
-        cdev_del(&my_device);
-        device_destroy(my_class, my_device_nr);
-        class_destroy(my_class);
-        unregister_chrdev_region(my_device_nr, 1);
-        return PTR_ERR(task);
-    }
-
-    printk(KERN_INFO "Driver initialized and measurement started.\n");
+    printk(KERN_INFO "Driver initialized.\n");
     return 0;
 }
 
 static void __exit ModuleExit(void) {
-    kthread_stop(task);
     i2c_unregister_device(bh1750_i2c_client);
     i2c_put_adapter(bh1750_i2c_adapter);
     cdev_del(&my_device);
     device_destroy(my_class, my_device_nr);
     class_destroy(my_class);
     unregister_chrdev_region(my_device_nr, 1);
-    printk(KERN_INFO "Driver removed and measurement stopped.\n");
+    printk(KERN_INFO "Driver removed.\n");
 }
 
 module_init(ModuleInit);
