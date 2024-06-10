@@ -29,6 +29,8 @@ static int device_open = 0;
 static struct i2c_adapter *bh1750_i2c_adapter = NULL;
 static struct i2c_client *bh1750_i2c_client = NULL;
 static struct task_struct *task;
+static int current_measurement = 0;
+static DEFINE_MUTEX(measurement_mutex);
 
 // I2C Board Info
 static struct i2c_board_info bh1750_i2c_board_info = {
@@ -72,23 +74,34 @@ static int measurement_thread(void *data) {
             continue;
         }
 
-        // Escribir el resultado en un archivo
-        struct file *file;
-        loff_t pos = 0;
-        char buf[64];
-        snprintf(buf, sizeof(buf), "%d\n", measurement);
+        // Actualizar la medición actual
+        mutex_lock(&measurement_mutex);
+        current_measurement = measurement;
+        mutex_unlock(&measurement_mutex);
 
-        file = filp_open("/var/log/bh1750.log", O_WRONLY | O_CREAT | O_APPEND, 0644);
-        if (!IS_ERR(file)) {
-            kernel_write(file, buf, strlen(buf), &pos);
-            filp_close(file, NULL);
-        } else {
-            printk(KERN_ERR "Error opening file: %ld\n", PTR_ERR(file));
-        }
-
-        msleep(100); // Esperar 0.1 segundos antes de la próxima medición
+        msleep(1000); // Esperar 1 segundos antes de la próxima medición
     }
     return 0;
+}
+
+// Función de lectura
+static ssize_t dev_read(struct file *filep, char *buffer, size_t len, loff_t *offset) {
+    char buf[16];
+    int measurement;
+    int ret;
+
+    mutex_lock(&measurement_mutex);
+    measurement = current_measurement;
+    mutex_unlock(&measurement_mutex);
+
+    snprintf(buf, sizeof(buf), "%d\n", measurement);
+    ret = copy_to_user(buffer, buf, strlen(buf));
+    if (ret) {
+        printk(KERN_ERR "Failed to send measurement to user\n");
+        return -EFAULT;
+    }
+
+    return strlen(buf);
 }
 
 static int dev_open(struct inode *inode, struct file *file) {
@@ -107,6 +120,7 @@ static int dev_release(struct inode *inode, struct file *file) {
 }
 
 static struct file_operations fops = {
+    .read = dev_read,
     .open = dev_open,
     .release = dev_release,
 };
