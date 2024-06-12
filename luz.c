@@ -34,13 +34,13 @@ static struct i2c_board_info bh1750_i2c_board_info = {
     I2C_BOARD_INFO(SLAVE_DEVICE_NAME, BH1750_SLAVE_ADDRESS)
 };
 
-// Función para leer el nivel de luz desde el sensor BH1750
+// Function to read the light level from the BH1750 sensor
 static int bh1750_read_light_level(void) {
     int ret;
     char buf[2];
     int lux;
 
-    // Enviar comando de medición
+    // Send 'measure' command
     buf[0] = 0x10; // Continuously H-Resolution Mode
     ret = i2c_master_send(bh1750_i2c_client, buf, 1);
     if (ret < 0) {
@@ -48,9 +48,9 @@ static int bh1750_read_light_level(void) {
         return ret;
     }
 
-    msleep(180); // Esperar a que se tome la medición
+    msleep(180); // Wait for the measurement to be done
 
-    // Leer datos de medición
+    // Read measurement data
     ret = i2c_master_recv(bh1750_i2c_client, buf, 2);
     if (ret < 0) {
         printk(KERN_ERR "Failed to read measurement data\n");
@@ -61,19 +61,19 @@ static int bh1750_read_light_level(void) {
     return lux;
 }
 
-// Función de lectura
+// Reading function
 static ssize_t dev_read(struct file *filep, char *buffer, size_t len, loff_t *offset) {
-    static int read_done = 0;  // Variable estática para controlar si ya se ha realizado una lectura
+    static int read_done = 0;  // Static variable to control if a measure was already made
     char buf[16];
     int measurement;
     int ret;
 
     if (read_done) {
-        read_done = 0;  // Reset para la próxima apertura del archivo
-        return 0;  // Indicar que no hay más datos que leer
+        read_done = 0;  // Reset for the next opening of the file
+        return 0;  // Signal that there's no more data to read
     }
 
-    // Realizar la medición
+    // Makes a measurement
     measurement = bh1750_read_light_level();
     if (measurement < 0) {
         printk(KERN_ERR "Measurement failed\n");
@@ -87,7 +87,7 @@ static ssize_t dev_read(struct file *filep, char *buffer, size_t len, loff_t *of
         return -EFAULT;
     }
 
-    read_done = 1;  // Indicar que se ha realizado una lectura
+    read_done = 1;  // Signals that a reading occurred
 
     return strlen(buf);
 }

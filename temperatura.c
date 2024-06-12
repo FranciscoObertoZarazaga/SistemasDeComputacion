@@ -35,7 +35,7 @@ static int read_temperature(char *buffer, size_t size) {
     loff_t pos = 0;
     int ret;
 
-    printk(KERN_INFO "Attempting to open %s\n", W1_SLAVE_PATH);  // Mensaje de depuración
+    printk(KERN_INFO "Attempting to open %s\n", W1_SLAVE_PATH);  // Depuration message
 
     f = filp_open(W1_SLAVE_PATH, O_RDONLY, 0);
     if (IS_ERR(f)) {
@@ -98,7 +98,7 @@ static int sensor_thread(void *data) {
             if (temperature >= 0) {
                 char temp_str[32];
                 snprintf(temp_str, sizeof(temp_str), "%d", temperature);
-                printk(KERN_INFO "Writing temperature to file: %s\n", temp_str);  // Mensaje de depuración
+                printk(KERN_INFO "Writing temperature to file: %s\n", temp_str);  // Depuration message
                 write_temperature_to_file(temp_str);
             } else {
                 printk(KERN_ERR "Failed to parse temperature\n");
